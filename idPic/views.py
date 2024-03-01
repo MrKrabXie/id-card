@@ -10,6 +10,8 @@ from PIL import Image
 from io import BytesIO
 from django.http import JsonResponse
 from idPic import utils
+
+
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
@@ -26,7 +28,6 @@ def upload_image(request):
         # data = BytesIO(base64.b64decode(imgstr))
         # img = Image.open(data)
         # img.save(os.path.join(settings.MEDIA_ROOT, 'image.' + ext))  # 将图像保存至 MEDIA_ROOT
-
 
         result = utils.extract_id_info(base64_image)
 
